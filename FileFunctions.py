@@ -10,6 +10,38 @@ def writeFile():
     file1.close()
     pass
 
+def writeFileUI(fileName, newName):
+    file1 = open(fileName, 'w')
+    file1.write(newName)
+    file1.close()
+    return "DONE"
+
+
+
+def processFile(fileName):
+    fRaw = open(fileName, "r")
+    f = fRaw.read()
+    specialChar = {}
+    for a in range(len(f)):
+        if (f[a] != "*" and f[a] != "/" and f[a] != "-" and f[a] != "+" and f[a] != " " and f[a].isdigit() == False):
+            specialChar[f[a]] = "io"
+    return specialChar
+
+
+def postProcessSolve(specialChar, fileName):
+    fRaw = open(fileName, "r")
+    f = fRaw.read()
+    finalSolve = ""
+    #print(f)
+    for a in f:
+        #print(f)
+        if (a != "*" and a != "/" and a != "-" and a != "+" and a != " " and a.isdigit() == False):
+            #print(a)
+            finalSolve += specialChar[a]
+        else:
+            finalSolve += a
+    return me.enterFormula(finalSolve)
+
 def solveFile():
     fileName = input("Enter name of file")
     fRaw = open(fileName, "r")
@@ -18,6 +50,8 @@ def solveFile():
     for a in range(len(f)):
         if (f[a] != "*" and f[a] != "/" and f[a] != "-" and f[a] != "+" and f[a] != " " and f[a].isdigit() == False):
             specialChar[f[a]] = "io"
+
+
 
     for a in specialChar:
         specialChar[a] = input("What is the value of " + a + "?")
@@ -28,7 +62,7 @@ def solveFile():
             finalSolve += specialChar[a]
         else:
             finalSolve += a
-    me.enterFormula(finalSolve)
+    return me.enterFormula(finalSolve)
 
 
 

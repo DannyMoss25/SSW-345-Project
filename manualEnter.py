@@ -42,9 +42,11 @@ def enterFormula(value):
     print(converted)
 
     final = solve.calc(converted)
-
+    print("THIS WAS WAS SET OFF")
+    print(final)
     if(final[0][0] != "Error! "):
-        print(final)
-        print("Your answer is " + str(final[0][0]) + final[0][1])
+        return "Your answer is " + str(final[0][0]) + final[0][1]
+        #print("Your answer is " + str(final[0][0]) + final[0][1])
     else:
-        print(str(final[0][0]) + final[0][1])
+        return (str(final[0][0]) + final[0][1])
+        #print(str(final[0][0]) + final[0][1])

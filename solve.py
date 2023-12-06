@@ -1,5 +1,5 @@
 import newUnits
-
+from tkinter import messagebox as mb
 def calc(prompt):
 
     add = []
@@ -20,16 +20,14 @@ def calc(prompt):
 
 
     for i in multiply:
+
         prompt[i - 1][0] = float(prompt[i - 1][0]) * float(prompt[i + 1][0])
 
         prompt[i - 1][1] = newUnits.newUnitsMult(prompt[i - 1][1], prompt[i + 1][1])
 
 
-        firstRemoved = prompt[i]
-        secondRemoved = prompt[i + 1]
-
-        prompt.remove(firstRemoved)
-        prompt.remove(secondRemoved)
+        prompt.pop(i)
+        prompt.pop(i)
 
         fix = 0
         for j in multiply:
@@ -63,8 +61,8 @@ def calc(prompt):
         firstRemoved = prompt[i]
         secondRemoved = prompt[i + 1]
 
-        prompt.remove(firstRemoved)
-        prompt.remove(secondRemoved)
+        prompt.pop(i)
+        prompt.pop(i)
 
         fix = 0
         for j in multiply:
@@ -89,6 +87,11 @@ def calc(prompt):
 
     for i in add:
         if not(str(prompt[i - 1][1]) == str(prompt[i + 1][1])):
+            print(prompt)
+            print("ONE VLA")
+            print(str(prompt[i - 1][1]))
+            print("TWO VLA")
+            print(str(prompt[i + 1][1]))
             return[["Error! ", "You are trying to add two different types of units! YOU CANNOT DO THAT!"]]
 
         prompt[i - 1][0] = float(prompt[i - 1][0]) + float(prompt[i + 1][0])
@@ -97,8 +100,8 @@ def calc(prompt):
         firstRemoved = prompt[i]
         secondRemoved = prompt[i + 1]
 
-        prompt.remove(firstRemoved)
-        prompt.remove(secondRemoved)
+        prompt.pop(i)
+        prompt.pop(i)
 
         fix = 0
         for j in multiply:
@@ -131,8 +134,8 @@ def calc(prompt):
         firstRemoved = prompt[i]
         secondRemoved = prompt[i + 1]
 
-        prompt.remove(firstRemoved)
-        prompt.remove(secondRemoved)
+        prompt.pop(i)
+        prompt.pop(i)
         for j in multiply:
             if j > i:
                 multiply[fix] = multiply[fix] - 2
