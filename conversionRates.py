@@ -58,6 +58,12 @@ def rates(values):
         elif(a == "mm"):
             changeOfNumber *= .001**float(powers[b])
             changeOfUnits.append("m" + str(powers[b]))
+        elif(a == "in"):
+            changeOfNumber *= 0.0254 ** float(powers[b])
+            changeOfUnits.append("m" + str(powers[b]))
+        elif (a == "miles"):
+            changeOfNumber *= 1609.34 ** float(powers[b])
+            changeOfUnits.append("m" + str(powers[b]))
         elif(a == "km"):
             changeOfNumber *= 1000**float(powers[b])
             changeOfUnits.append("m" + str(powers[b]))
