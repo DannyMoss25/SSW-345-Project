@@ -1,12 +1,12 @@
-import manualEnter as me
+import manualEnter
 
-manualEnter = me.manualEnter()
 
 class FileFunctions:
     def __init__(self):
         pass
 
-    def writeFile(self):
+    @staticmethod
+    def writeFile():
         fileName = input("Enter name of file you wish to edit")
         newName = input("Enter the new contents of the file")
         file1 = open(fileName, 'w')
@@ -14,15 +14,16 @@ class FileFunctions:
         file1.close()
         pass
 
-    def writeFileUI(self, fileName, newName):
+
+    @staticmethod
+    def writeFileUI(fileName, newName):
         file1 = open(fileName, 'w')
         file1.write(newName)
         file1.close()
         return "DONE"
 
-
-
-    def processFile(self, fileName):
+    @staticmethod
+    def processFile(fileName):
         fRaw = open(fileName, "r")
         f = fRaw.read()
         specialChar = {}
@@ -31,8 +32,8 @@ class FileFunctions:
                 specialChar[f[a]] = "io"
         return specialChar
 
-
-    def postProcessSolve(self, specialChar, fileName):
+    @staticmethod
+    def postProcessSolve(specialChar, fileName):
         fRaw = open(fileName, "r")
         f = fRaw.read()
         finalSolve = ""
@@ -44,9 +45,10 @@ class FileFunctions:
                 finalSolve += specialChar[a]
             else:
                 finalSolve += a
-        return manualEnter.enterFormula(finalSolve)
+        return manualEnter.manualEnter.enterFormula(finalSolve)
 
-    def solveFile(self):
+    @staticmethod
+    def solveFile():
         fileName = input("Enter name of file")
         fRaw = open(fileName, "r")
         f = fRaw.read()
@@ -66,17 +68,16 @@ class FileFunctions:
                 finalSolve += specialChar[a]
             else:
                 finalSolve += a
-        return manualEnter.enterFormula(finalSolve)
+        return manualEnter.manualEnter.enterFormula(finalSolve)
 
 
-
-
-    def useFile(self):
+    @staticmethod
+    def useFile():
         fileName = input("Do you want to edit a file or use a file?\n edit: edit the file \n use: use file\n")
         if(fileName == "edit"):
-            self.writeFile()
+            FileFunctions.writeFile()
         else:
-            self.solveFile()
+            FileFunctions.solveFile()
 
 
 

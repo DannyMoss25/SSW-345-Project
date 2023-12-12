@@ -1,9 +1,12 @@
-import conversionRates as cr
-conversionRates = cr.conversionRates()
+import conversionRates
+
+
 class convert:
     def __init__(self):
         pass
-    def convert(self, values):
+
+    @staticmethod
+    def convert(values):
         result = []
         saved = ""
         for i in values:
@@ -36,7 +39,7 @@ class convert:
 
         for value in result:
             if(value[0] != "|"):
-                conversionValues = conversionRates.rates(value[1])
+                conversionValues = conversionRates.conversionRates.rates(value[1])
                 value[0] = float(value[0]) * float(conversionValues[0])
                 value[1] = conversionValues[1]
         return result

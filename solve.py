@@ -1,6 +1,6 @@
-import newUnits as nu
+import newUnits
 
-newUnits = nu.newUnits
+
 
 
 
@@ -8,7 +8,8 @@ class solve:
     def __init__(self):
         pass
     from tkinter import messagebox as mb
-    def calc(self, prompt):
+    @staticmethod
+    def calc(prompt):
 
         add = []
         subtract = []
@@ -33,7 +34,7 @@ class solve:
             prompt[i - 1][0] = float(prompt[i - 1][0]) * float(prompt[i + 1][0])
 
 
-            prompt[i - 1][1] = newUnits.newUnitsMult(newUnits, prompt[i - 1][1], prompt[i + 1][1])
+            prompt[i - 1][1] = newUnits.newUnits.newUnitsMult(prompt[i - 1][1], prompt[i + 1][1])
 
 
             prompt.pop(i)
@@ -65,7 +66,7 @@ class solve:
             prompt[i - 1][0] = float(prompt[i - 1][0]) / float(prompt[i + 1][0])
 
 
-            prompt[i - 1][1] = newUnits.newUnitsDiv(newUnits, prompt[i - 1][1], prompt[i + 1][1])
+            prompt[i - 1][1] = newUnits.newUnits.newUnitsDiv(prompt[i - 1][1], prompt[i + 1][1])
 
 
             firstRemoved = prompt[i]

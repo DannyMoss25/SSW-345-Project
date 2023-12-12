@@ -1,20 +1,20 @@
-import convert as con
-import solve as sol
+import convert
+import solve
 
-convert = con.convert()
-solve = sol.solve()
+
 
 
 class manualEnter:
     def __init__(self):
         pass
 
-    def inputForm(self):
+    @staticmethod
+    def inputForm():
         value = input("Enter Formula")
         manualEnter.enterFormula(value)
 
-
-    def enterFormula(self, value):
+    @staticmethod
+    def enterFormula(value):
 
 
         valueSplitted = [""]
@@ -43,11 +43,11 @@ class manualEnter:
             else:
                 valueSplitted[currentValue] = valueSplitted[currentValue] + i
 
-        converted = convert.convert(valueSplitted)
+        converted = convert.convert.convert(valueSplitted)
         print("Here is what was")
         print(converted)
 
-        final = solve.calc(converted)
+        final = solve.solve.calc(converted)
         print("THIS WAS WAS SET OFF")
         print(final)
         if(final[0][0] != "Error! "):

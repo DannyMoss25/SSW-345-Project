@@ -3,8 +3,9 @@ import math
 class newUnits:
     def __init__(self):
         pass
-    
-    def newUnitsDiv(self, one, two):
+
+    @staticmethod
+    def newUnitsDiv(one, two):
         print(one)
         gramsOne = ""
         gramsTwo = ""
@@ -132,13 +133,8 @@ class newUnits:
 
         print("EndedTwo")
 
-
-
-
-
-
-
-    def newUnitsMult(self, one, two):
+    @staticmethod
+    def newUnitsMult(one, two):
         print(one)
         gramsOne = ""
         gramsTwo = ""

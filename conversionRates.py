@@ -3,7 +3,8 @@ class conversionRates:
     def __init__(self):
         pass
 
-    def rates(self, values):
+    @staticmethod
+    def rates(values):
         splitted = []
         powers = []
         current = ""
