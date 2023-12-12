@@ -65,7 +65,7 @@ class solve:
             prompt[i - 1][0] = float(prompt[i - 1][0]) / float(prompt[i + 1][0])
 
 
-            prompt[i - 1][1] = newUnits.newUnitsDiv(prompt[i - 1][1], prompt[i + 1][1])
+            prompt[i - 1][1] = newUnits.newUnitsDiv(newUnits, prompt[i - 1][1], prompt[i + 1][1])
 
 
             firstRemoved = prompt[i]
